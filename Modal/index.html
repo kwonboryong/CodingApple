@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="a.css" rel="stylesheet" />
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--모달창 html, css-->
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
+
+    <!--jQuery 구문-->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <button id="btn">로그인</button>
+
+    <script>
+      $(".black-bg").hide();
+      $("#btn").on("click", function () {
+        $(".black-bg").slideDown();
+      });
+      $("#close").on("click", function () {
+        $(".black-bg").slideUp();
+      });
+    </script>
+  </body>
+</html>
