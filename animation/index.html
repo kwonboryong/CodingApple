@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="main.css" rel="stylesheet" />
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--모달창 html, css-->
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <button class="btn btn-danger" id="close">닫기</button>
+      </div>
+    </div>
+
+    <button id="login">로그인</button>
+
+    <script>
+        document.getElementById("login").addEventListener("click", function () {
+            document.querySelector('.black-bg').classList.add('show-modal');
+        });
+        document.getElementById("close").addEventListener("click", function () {
+            document.querySelector('.black-bg').classList.remove('show-modal');
+        });
+    </script>
+  </body>
+</html>
