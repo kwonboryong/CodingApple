@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- 폰트 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- 기본 화면 -->
+    <div class="main">
+        <h4>재밌는 369 게임</h4>
+        <button type="button" id="start">start!</button>
+    </div>
+
+    <!-- 입력창 -->
+    <div class="modal">
+        <form action="success.html">
+            <input type="text" id="result">
+            <!-- <input> 사이즈 조절하기:
+                1. <input> 태그 안에 넣기 (sixe="": width, height, font-size) 
+                2. css에서 input { } class 생성하기
+            -->
+            <button type="submit" id="submit">제출</button>
+            <button type="button" id="close">닫기</button>
+        </form>    
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

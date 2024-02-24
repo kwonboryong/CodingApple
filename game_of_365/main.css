@@ -1,0 +1,67 @@
+/* 제목 */
+.main {
+    font-family: "Gugi", sans-serif;
+    font-size: 38px;
+    text-align: center;
+
+    margin: 100px;
+}
+
+/* start 버튼 */
+#start {
+    font-family: "Gugi", sans-serif;
+    font-size: 20px;
+
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: auto;
+    width: auto;
+
+    background-color: coral;
+}
+
+#start:hover {
+    background-color: rgb(252, 229, 27);
+}
+
+
+/* 모달창 */
+.modal {
+    display: none;
+    text-align: center;
+    background: white;
+
+    padding: 8px;
+    margin: -80px;
+}
+
+/* 제출, 닫기 버튼 */
+button {
+    font-family: "Gugi", sans-serif;
+    font-size:18px;
+
+    border-radius: 8px;
+    background-color: greenyellow;
+}
+
+button:hover {
+    background-color: gold;
+}
+
+
+/* 입력 받는 칸 */
+input {
+    font-family: "Gugi", sans-serif;
+    font-size:22px;
+    text-align: center;
+
+    width: 80px;
+    height: 30px;
+    margin: 30px;
+    border-radius: 8px;
+}
+
+.show {
+    display: block;
+}
