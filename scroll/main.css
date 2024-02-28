@@ -1,0 +1,21 @@
+.navbar {
+    position: fixed;
+    /* 상단 고정(스크롤 되어도 상단에 고정됨) */
+    width: 100%;
+    z-index: 5;
+}
+
+/* 스크롤바 내리면 로고 작게 만들기 */
+.navbar-brand {
+    font-size: 25px;
+    /* 시작 스타일: 애니메이션 작동 전의 글씨 크기 */
+    transition: all 2s;
+}
+
+.small {
+    font-size: 20px;
+}
+
+.show {
+display: block; 
+}
