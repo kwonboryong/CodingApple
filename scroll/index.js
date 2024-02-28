@@ -25,6 +25,33 @@ window.addEventListener('scroll', function() {
     if (scrollLength < loremCHeight) {  // 스크롤 위치(scrollLength)가 보여지는 약관 div 높이(loremCHeight)보다 작으면
         hasScrolled = false;
     }  
+    
+
+    // 4. 상단의 진행바 만들기
+    // 전체 세로폭 중 현재까지 스크롤한 값을 백분률 환산
+    // (브라우저 최하단까지 스크롤을 내리면 100%가 됨)
+    const progress = ((scrollLength + loremCHeight) / loremSHeight) * 100;
+    // 방법 1. 백분률에 %를 붙여서 바로 진행바 길이 조정하기
+    // - 깔끔하고 확장성 있는 코드
+    // - 그러나 UI가 이상하게 나온다. (스크롤을 움직이지 않은 페이지 상단에서도 이미 15% 정도 진행바가 진행되어 있음)
+    // document.querySelector('.ui').style.width = progress + '%';
+    
+    // 방법 2. 백분률을 직접 나눠서 길이 부여하기
+    if (progress < 16) {
+        this.document.querySelector('.ui').style.width = '0%';
+    } else if (progress < 20) {
+        this.document.querySelector('.ui').style.width = '20%';
+    } else if (progress < 40) {
+        this.document.querySelector('.ui').style.width = '40%';
+    } else if (progress < 60) {
+        this.document.querySelector('.ui').style.width = '60%';
+    } else if (progress < 80) {
+        this.document.querySelector('.ui').style.width = '80%';
+    } else if (progress < 95) {
+        this.document.querySelector('.ui').style.width = '95%';  
+    } else if (progress > 97) {
+        this.document.querySelector('.ui').style.width = '100%';
+    }
 });
         
 
