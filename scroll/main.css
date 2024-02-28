@@ -17,5 +17,14 @@
 }
 
 .show {
-display: block; 
+    display: block; 
+}
+
+.ui {
+    background-color: red;
+    padding: 1px;
+    width: 0%;
+    position: fixed;
+    z-index: 10;
+    transition: all 1s;
 }
