@@ -33,7 +33,7 @@ document.getElementById('form1').addEventListener('submit', function(e) {
     }
 
     // 비밀번호 길이 6 ~ 12자 제한
-    if (pw.length < 6 && pw.length > 12) {
+    if (pw.length < 6 || pw.length > 12) {
         alert('비밀번호 길이 제한을 넘었습니다.');
         e.preventDefault()
     }
