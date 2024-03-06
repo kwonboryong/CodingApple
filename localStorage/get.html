@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>장바구니 상품 목록</h2>
+    <ul id="cartItems"></ul>
+
+    <script>
+        // 로컬 스토리지에서 장바구니 상품들을 가져와 화면에 출력
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartList = document.getElementById('cartItems');
+
+        cartItems.forEach(function(item) {
+            let listItem = document.createElement('li');
+            listItem.textContent = item;
+            cartList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
