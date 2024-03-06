@@ -18,21 +18,22 @@ products.forEach((a, i) => {
     document.querySelector('.row').insertAdjacentHTML('beforeend', a);
 });
 
+
 // 상품 더보기 버튼
-/* 이 코드는 페이지별로 데이터를 가져와서 화면에 추가하고, 
-더 이상 가져올 데이터가 없을 경우 더보기 버튼을 비활성화합니다. 
-페이지 번호를 저장하기 위한 page 변수를 사용하여 다음에 가져올 페이지를 지정하고, 
-데이터를 가져올 때마다 이 값을 증가시킵니다.
-*/
-let page = 1; // 가져올 페이지를 나타내는 변수
+let page = 1; // 1. 데이터를 가져올 페이지를 나타내는 변수를 선언한다.
 
 document.getElementById('more').addEventListener('click', function() {
+    // 2. fetch 함수를 사용하여 해당 URL에서 데이터를 가져온다. 
+    // 2-1. URL에는 ${page}를 사용하여 페이지 번호를 동적으로 설정한다.
     fetch(`https://codingapple1.github.io/js/more${page}.json`)
-    .then(res => res.json())
-    .then(data => {
-        if (data.length > 0) { // 가져올 데이터가 있는 경우
-            console.log(data);
-            
+    .then(res => res.json()) // fetch의 응답을 JSON 형식으로 파싱
+    .then(data => { // JSON 데이터를 받아 처리
+    
+    	// 3. 데이터가 있는지 확인한다.
+    	// 3-1. 가져올 데이터가 있는 경우
+        if (data.length > 0) { 
+
+            // (1) 가져온 데이터 배열을 순회하면서 각 항목마다 HTML 생성한다.
             data.forEach(item => {
                 let html = `
                 <div class="col-sm-4">
@@ -40,19 +41,24 @@ document.getElementById('more').addEventListener('click', function() {
                     <h5>${item.title}</h5> 
                     <p>가격 : ${item.price}</p>
                 </div>`;
-                
+               
+                // (2) HTML 요소에 데이터를 추가한 HTML을 추가한다.
                 document.querySelector('.row').insertAdjacentHTML('beforeend', html);
             });
 
-            page++; // 다음 페이지로 설정
-        } else { // 가져올 데이터가 없는 경우
-            console.log("더 이상 데이터가 없습니다.");
-            document.getElementById('more').disabled = true; // 더보기 버튼 비활성화
+	    // (3) 다음에 가져올 페이지를 설정하기 위해 페이지 번호를 증가시킨다.
+            page++; 
+            
+        // 3-2. 가져올 데이터가 없는 경우
+        } else {
+        	// (1) 더보기 버튼을 비활성화한다.
+            document.getElementById('more').disabled = true; 
         }
     })
-    .catch(error => {
+    // 2-2. 오류가 발생하면 콘솔에 오류를 기록
+    .catch(error => { 
         console.log(error);
-    });
+    })
 });
 
 //--------------------------------------------------
