@@ -19,28 +19,41 @@ products.forEach((a, i) => {
 });
 
 // 상품 더보기 버튼
-document.getElementById('more').addEventListener('click', function() {
+/* 이 코드는 페이지별로 데이터를 가져와서 화면에 추가하고, 
+더 이상 가져올 데이터가 없을 경우 더보기 버튼을 비활성화합니다. 
+페이지 번호를 저장하기 위한 page 변수를 사용하여 다음에 가져올 페이지를 지정하고, 
+데이터를 가져올 때마다 이 값을 증가시킵니다.
+*/
+let page = 1; // 가져올 페이지를 나타내는 변수
 
-    fetch('https://codingapple1.github.io/js/more1.json')
+document.getElementById('more').addEventListener('click', function() {
+    fetch(`https://codingapple1.github.io/js/more${page}.json`)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        if (data.length > 0) { // 가져올 데이터가 있는 경우
+            console.log(data);
+            
+            data.forEach(item => {
+                let html = `
+                <div class="col-sm-4">
+                    <img src="https://via.placeholder.com/600" class="w-100">
+                    <h5>${item.title}</h5> 
+                    <p>가격 : ${item.price}</p>
+                </div>`;
+                
+                document.querySelector('.row').insertAdjacentHTML('beforeend', html);
+            });
 
-        data.forEach((a, i) => {
-            var a = 
-            `<div class="col-sm-4">
-                <img src="https://via.placeholder.com/600" class="w-100">
-                <h5>${data[i].title}</h5> 
-                <p>가격 : ${data[i].price}</p>
-            </div>`;
-
-            document.querySelector('.row').insertAdjacentHTML('beforeend', a);
-        })
+            page++; // 다음 페이지로 설정
+        } else { // 가져올 데이터가 없는 경우
+            console.log("더 이상 데이터가 없습니다.");
+            document.getElementById('more').disabled = true; // 더보기 버튼 비활성화
+        }
     })
-    .catch(error =>{
-        console.log(error)
-    })
-})
+    .catch(error => {
+        console.log(error);
+    });
+});
 
 //--------------------------------------------------
 
